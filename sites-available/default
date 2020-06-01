@@ -1,0 +1,18 @@
+	server {
+	 listen 80;
+	
+	 root /etc/nginx/index;
+	 index index.html;
+
+	 server_name    localhost;
+
+	 location /veneto {
+		 root /etc/nginx/var/www;
+		 try_files $uri $uri/ =404;
+	 }
+
+	 location / {
+		 root /etc/nginx/var/www/default;
+		 try_files $uri $uri/ =404;
+	 }
+}
